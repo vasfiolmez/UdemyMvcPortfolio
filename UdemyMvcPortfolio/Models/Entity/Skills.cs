@@ -16,5 +16,6 @@ namespace UdemyMvcPortfolio.Models.Entity
     {
         public int SkillId { get; set; }
         public string Skill { get; set; }
+        public Nullable<byte> Rate { get; set; }
     }
 }

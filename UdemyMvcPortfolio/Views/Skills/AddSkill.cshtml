@@ -1,0 +1,20 @@
+﻿@model UdemyMvcPortfolio.Models.Entity.Skills
+@{
+    ViewBag.Title = "Yetenek Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+ 
+    <label> Yetenek Başlığı</label>
+    @Html.TextBoxFor(x => x.Skill, new { @class = "form-control" })
+    <br />
+
+    <label>Oran</label>
+    @Html.TextBoxFor(x => x.Rate, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
+

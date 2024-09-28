@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using UdemyMvcPortfolio.Models.Entity;
 
@@ -31,6 +32,10 @@ namespace UdemyMvcPortfolio.Repositories
         public T GetById(int id)
         {
             return db.Set<T>().Find(id);
+        }
+        public T Find(Expression<Func<T, bool>> where)
+        {
+            return db.Set<T>().FirstOrDefault(where);
         }
 
     }

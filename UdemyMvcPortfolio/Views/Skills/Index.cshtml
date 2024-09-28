@@ -1,0 +1,95 @@
+﻿@model List<UdemyMvcPortfolio.Models.Entity.Skills>
+@{
+    ViewBag.Title = "Yetenek Listem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string renk = "";
+    int count = 0;
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card-body">
+                            <a href="/Skills/AddSkill/" class="btn btn-info">Yeni Yetenek Ekle</a>
+                            <br />
+                            <br />
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Yetenek</th>
+                                        <th>İlerleme</th>
+                                        <th style="width: 40px">Oran</th>
+                                        <th style="width: 90px">Düzenle</th>
+                                        <th style="width: 90px">Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.Rate >= 0 && item.Rate <= 50)
+                                        {
+                                            renk = "danger";
+                                        }
+                                        if (item.Rate >= 51 && item.Rate <= 70)
+                                        {
+                                            renk = "warning";
+                                        }
+                                        if (item.Rate >= 71 && item.Rate <= 84)
+                                        {
+                                            renk = "primary";
+                                        }
+                                        if (item.Rate >= 85 && item.Rate <= 100)
+                                        {
+                                            renk = "success";
+                                        }
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Skill</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-@renk progress-bar-@renk" style="width: @item.Rate%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-@renk">@item.Rate%</span></td>
+                                            <td>
+                                                <a class="btn btn-app" href="/Skills/UpdateSkill/@item.SkillId">
+                                                    <i class="fas fa-edit"></i>Düzenle
+                                                </a>
+
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-app" href="/Skills/DeleteSkill/@item.SkillId">
+                                                    <i class="fas fa-times-circle"></i>Sİl
+                                                </a>
+                                            </td>
+
+
+
+                                        </tr>
+
+                                    }
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
+

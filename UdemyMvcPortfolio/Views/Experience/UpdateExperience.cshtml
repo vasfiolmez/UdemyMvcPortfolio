@@ -1,0 +1,33 @@
+﻿@model UdemyMvcPortfolio.Models.Entity.Experience
+@{
+    ViewBag.Title = "UpdateExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    <h2 class="mb-5">Deneyim Güncelleme Sayfası</h2>
+
+    @Html.HiddenFor(x => x.ExperienceId)
+
+    <label> Deneyim Başlığı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label>Deneyim Alt Başlığı</label>
+    @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control" })
+    <br />
+
+    <label>Deneyim Açıklaması</label>
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @rows = "5" })
+    <br />
+
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Deneyimi Güncelle</button>
+
+</form>
+
+
