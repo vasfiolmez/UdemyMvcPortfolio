@@ -1,8 +1,38 @@
-﻿
+﻿@model List< UdemyMvcPortfolio.Models.Entity.Education>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Eğitim Hayatı Listesi";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 
-<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Alt Başlık2</th>
+        <th>Tarih</th>
+        <th>GNO</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Subtitle</td>
+            <td>@item.Subtitle2</td>
+            <td>@item.Date</td>
+            <td>@item.GNO</td>
+            <td><a href="/Education/DeleteEducation/@item.EducationId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Education/UpdateEducation/@item.EducationId" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+<a href="/Education/AddEducation/" class="btn btn-primary">Yeni Eğitim  Ekle</a>
+
 

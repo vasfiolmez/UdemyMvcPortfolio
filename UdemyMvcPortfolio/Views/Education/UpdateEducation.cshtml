@@ -1,0 +1,30 @@
+﻿@model UdemyMvcPortfolio.Models.Entity.Education
+@{
+    ViewBag.Title = "Eğitim Hayatı Güncelleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    @Html.HiddenFor(x=>x.EducationId)
+
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label>Alt Başlık</label>
+    @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control" })
+    <br />
+    <label>Alt Başlık2</label>
+    @Html.TextBoxFor(x => x.Subtitle2, new { @class = "form-control" })
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <label>GNO</label>
+    @Html.TextBoxFor(x => x.GNO, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
+
