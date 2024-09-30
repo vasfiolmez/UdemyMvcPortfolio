@@ -1,0 +1,26 @@
+﻿@model UdemyMvcPortfolio.Models.Entity.Certificates
+@{
+    ViewBag.Title = "Sertifika Güncelleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    @Html.HiddenFor(x => x.ID)
+
+
+    <label> Sertifika Açıklaması</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-outline-success">Güncelle</button>
+    <a class="btn btn-outline-danger" href="/Certificates/DeleteCertificate/@Model.ID">
+    Sil
+    </a>
+</form>
+
+

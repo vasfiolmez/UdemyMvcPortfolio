@@ -6,8 +6,10 @@
 
 <form method="post">
 
+    @Html.ValidationSummary(true)
     <label>Başlık</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new {@class="text-danger"})
     <br />
 
     <label>Alt Başlık</label>

@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UdemyMvcPortfolio.Models.Entity;
+using UdemyMvcPortfolio.Repositories;
 
 namespace UdemyMvcPortfolio.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: Contact
+        GenericRepository<Contact> _repository=new GenericRepository<Contact>();    
         public ActionResult Index()
         {
-            return View();
+            var values=_repository.List();
+            return View(values);
         }
     }
 }
