@@ -1,8 +1,19 @@
-﻿
+﻿@model List<UdemyMvcPortfolio.Models.Entity.Hobbies>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Hobi Düzenleme Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<form method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        @Html.HiddenFor(model => Model[i].Id)
 
-<h2>Index</h2>
+        <label>Açıklama</label>
+        @Html.TextAreaFor(x => Model[i].Descripiton, new { @class = "form-control", @rows = "5" })
+
+    }
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+</form>
 
