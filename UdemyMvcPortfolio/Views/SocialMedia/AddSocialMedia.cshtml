@@ -1,0 +1,25 @@
+﻿@model UdemyMvcPortfolio.Models.Entity.SocialMedia
+@{
+    ViewBag.Title = "Sosyal Medya Ekleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post">
+
+    @Html.HiddenFor(x => x.ID)
+
+    <label>Sosyal Medya Adı</label>
+    @Html.TextBoxFor(x => x.SocialmediaName, new { @class = "form-control" })
+
+    <label>Sosyal Medya İkonu</label>
+    @Html.TextBoxFor(x => x.İcon, new { @class = "form-control" })
+
+    <label>Sosyal Medya Linki</label>
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
+
+

@@ -17,6 +17,11 @@ namespace UdemyMvcPortfolio.Controllers
             var values = db.About.ToList();
             return View(values);
         }
+        public PartialViewResult SocialMedia()
+        {
+            var values=db.SocialMedia.ToList();
+            return PartialView(values);
+        }
 
         public PartialViewResult Experience()
         {

@@ -1,0 +1,82 @@
+﻿@model List<UdemyMvcPortfolio.Models.Entity.SocialMedia>
+
+
+@{
+    ViewBag.Title = "Sosyal Medya Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    string status = "";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Sosyal Medya Adı</th>
+        <th>Durum</th>
+
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.Status == true)
+        {
+            status = "Aktif";
+        }
+        if (item.Status == false)
+        {
+            status = "Pasif";
+        }
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.SocialmediaName</td>
+            <td>@status</td>
+
+            <td>
+                @if (item.Status == true)
+                {
+                    <a href="/SocialMedia/SocialMediaStatusToFalse/@item.ID" class="btn btn-dark">
+                        Pasif Yap
+                    </a>
+                }
+                else
+                {
+                    <a href="/SocialMedia/SocialMediaStatusToTrue/@item.ID" class="btn btn-success">
+                        Aktif Yap
+                    </a>
+                }
+
+                <a href="/SocialMedia/UpdateSocialMedia/@item.ID" class="btn btn-warning">Düzenle</a>
+                <a href="/SocialMedia/DeleteSocialMedia/@item.ID" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1" ">Yeni Sosyal Medya Hesabı Ekle</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sosyal Medya Ekleme Penceresi</h2>
+            </div>
+            <form method="post" action="/SocialMedia/AddSocialMedia/">
+                <div class="modal-body">
+                    <label>Sosyal Medya İsmi</label>
+                    <input type="text" name="SocialmediaName" class="form-control" />
+                    <br />
+                    <label> Sosyal Medya Linki</label>
+                    <input type="text" name="Link" class="form-control" />
+                    <br />
+                    <label> İkon Değeri</label>
+                    <input type="text" name="İcon" class="form-control" />
+                    <br />
+                    <button class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

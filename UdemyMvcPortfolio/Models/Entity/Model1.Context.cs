@@ -33,5 +33,6 @@ namespace UdemyMvcPortfolio.Models.Entity
         public virtual DbSet<Hobbies> Hobbies { get; set; }
         public virtual DbSet<Skills> Skills { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<SocialMedia> SocialMedia { get; set; }
     }
 }
