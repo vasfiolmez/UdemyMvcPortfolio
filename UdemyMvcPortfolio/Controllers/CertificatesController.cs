@@ -11,6 +11,7 @@ namespace UdemyMvcPortfolio.Controllers
     public class CertificatesController : Controller
     {
         GenericRepository<Certificates> repository = new GenericRepository<Certificates>();
+        [Authorize]
         public ActionResult Index()
         {
             var values = repository.List();

@@ -8,6 +8,7 @@ using UdemyMvcPortfolio.Models.Entity;
 
 namespace UdemyMvcPortfolio.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default

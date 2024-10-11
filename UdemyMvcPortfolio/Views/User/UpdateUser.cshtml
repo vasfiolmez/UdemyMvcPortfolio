@@ -1,0 +1,21 @@
+﻿@model UdemyMvcPortfolio.Models.Entity.User
+@{
+    ViewBag.Title = "Kullanıcı Güncelleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    <label> Kullanıcı Adı</label>
+    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+    <br />
+
+    <label>Şifre</label>
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
+
+
